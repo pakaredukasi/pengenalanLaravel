@@ -1,16 +1,23 @@
 @extends('master.master')
-@section('content');
+@section('content')
     <form action="/data" method="POST">
         @csrf
-        <label>Nama</label>
-        <input type="text" name="nama" class="form-control">
-
-        <label>Telepon</label>
-        <input type="number" name="telepon" class="form-control">
-
-        <label>Alamat</label>
-        <textarea name="alamat" cols="30" rows="10"></textarea>
-
-        <button type="submit" class="btn btn-primary btn-sm">Save</button>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nama</label>
+            <input name="nama" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Telpon</label>
+            <input name="telepon" type="number" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Alamat</label>
+            <input name="alamat" type="text" class="form-control">
+        </div>
+        <div class="form-group form-check">
+        {{-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> --}}
+        {{-- <label class="form-check-label" for="exampleCheck1">Check me out</label> --}}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-@endsection
+  @endsection

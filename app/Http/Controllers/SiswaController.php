@@ -14,8 +14,7 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        return "ini adalah index";
-        // untuk menampilkan view data
+       
     }
 
     /**
@@ -36,9 +35,16 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
+        // eloquent
+        // $siswa = new Siswa();
+        // $siswa->nama = $request->nama;
+        // $siswa->telepon = $request->telepon;
+        // $siswa->alamat = $request->alamat;
+        // $siswa->save();
+
+        // mass assignment
         Siswa::create($request->all());
-        
-        return view('home');
+        return redirect()->back();
     }
 
     /**
