@@ -13,9 +13,11 @@
           <a class="nav-link" href="/about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/data">Data</a>
+          <a class="nav-link" href="/data">Input Data</a>
         </li>
-        
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('viewData') }}">View Data</a>
+        </li>
       </ul>
     </div>
   </nav>
