@@ -43,6 +43,15 @@ class SiswaController extends Controller
         // $siswa->alamat = $request->alamat;
         // $siswa->save();
 
+        $validated = $request->validate([
+            'nama' => 'required | min:3',
+            'telepon' => 'required | numeric | digits:12',
+            'alamat' => 'required',
+        ], [
+            'required' => 'Pastikan :attribute field sudah diisi',
+            'digits' => 'Bro periksa karakter yang dimasukkan, harus 12 yahhh',
+        ]);
+
         // mass assignment
         Siswa::create($request->all());
         return redirect()->back();
@@ -67,9 +76,9 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        $getSiswa = Siswa::find($id);
-
-        return view('editData', compact('getSiswa'));
+        $siswa = Siswa::find($id);
+        
+        return view('editData', compact('siswa'));
     }
 
     /**
@@ -79,9 +88,10 @@ class SiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function update(Request $request, $id)
     {
-        Siswa::updateOrCreate(['id' => $id], request()->all());
+        Siswa::updateOrcreate(['id' => $id], $request->all());
 
         return redirect(route('viewData'));
     }
@@ -97,6 +107,6 @@ class SiswaController extends Controller
         $siswa = Siswa::find($id);
         $siswa->delete();
 
-        return redirect()->back();
+        return redirect(route('viewData'));
     }
 }

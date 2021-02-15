@@ -18,8 +18,9 @@
                 <td>{{ $siswa->nama }}</td>
                 <td>{{ $siswa->telepon }}</td>
                 <td>{{ $siswa->alamat }}</td>
-                <td><a href="{{ route('editData', $siswa->id) }}" class="btn btn-success btn-flat btn-sm">Edit</a>
-                    <a href="{{ route('deleteData', $siswa->id) }}" class="btn btn-danger btn-flat btn-sm">Delete</a>
+                <td>
+                  <a href="{{ route('editData', $siswa->id) }}" class="btn btn-success btn-flat btn-sm">Edit</a>
+                  <a href="{{ route('deleteData', $siswa->id)}}" class="btn btn-danger btn-flat btn-sm">Delete</a>
                 </td>
               </tr>
             @endforeach
